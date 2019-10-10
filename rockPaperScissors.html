@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <link rel = "stylesheet" href = "game.css">
+
+        <script src="game.js"></script>
+    </head>
+
+    <body>
+    <h1 id = "welcome">Let's Play Rock, Paper, Scissors!</h1>   
+    <div id = "entry">
+        <form id="nameForm" class = "nameForm" style="color: rgb(236, 235, 235);">
+            Please enter your name:<br><br>
+            <input type="text" id="name" autofocus required autocomplete="off"> 
+            <br><br>
+            <input type="submit" value="Let's get the game started!" onclick="showGame(); return false;">
+            <input type="submit" value="Nah, nevermind">
+        </form>
+    </div>
+
+    <div id="winOverlay" class="winOverlay" onclick = "resultsDisplayOff();">
+        <div class="winText">
+            <h1>You Won!</h1>
+            <p style="font-size: 25px;">Click anywhere to play again</p>
+        </div>
+    </div>
+    <div id="loseOverlay" class="loseOverlay" onclick = "resultsDisplayOff();">
+        <div class="loseText">
+            <h1>You Lose...</h1>
+            <p style="font-size: 25px;">Click anywhere to play again</p></div>
+    </div>
+    <div id="tieOverlay" class="tieOverlay" onclick = "resultsDisplayOff();">
+            <div class="tieText">
+                <h1>It was a tie!</h1>
+                <p style="font-size: 25px;">Click anywhere to play again</p>
+            </div>
+        </div>
+
+    <div id="game" style="display: none;">
+        <h2 style="text-align: center; color: #f7b733">Scroll down to see your stats!</h2>
+        <form style="text-align: center">
+                <input type="reset" value="Reset Game" style ="text-align: center" onclick ="resetGame()">
+                <input type="submit" value="Go Back to Home" style ="text-align: center" onclick ="goHome()">
+            </form>
+<div class="scoreBox" style = "float: left;">
+        <h2 class="score" style="text-align: center">Your Score:</h2>
+        <h2 id="playerScore" style="text-align: center">0</h2>
+</div>
+<div class = "scoreBox" style="float: right">
+        <h2 class ="score">Computer's Score:</h2>
+        <h2 id="computerScore" style="text-align: center">0</h2>
+</div>
+
+        <table class = "gameTable">
+            <tr>
+                <th>Select One</th>
+                <th>Play</th>
+                <th>Computer</th>
+            </tr>
+            <tr>
+                <td><form id="choices">
+                        <input type="radio" name="move" value="rock" checked>Rock<br>
+                        <input type="radio" name="move" value="paper"> Paper<br>
+                        <input type="radio" name="move" value="scissors"> Scissors<br>
+                      
+                </td>
+                <td><input type="submit" value="Go" id="go" onclick="computerDraw(); playGame(); return false;"></td>
+            </form>
+                <td id="computersPlay"></td>
+            </tr>
+            <tr>
+                <th style="font-size: 25px;">Result:</th>
+                <td colspan= "2" id="gameResult" style="font-weight:bold; font-size: 25px;">Game Results!</td>
+            </tr>
+        </table>
+        <span>
+        <h2 id="count" style="text-align: center; color: rgb(236, 235, 235);"></h2>
+        </span>
+        <div>
+            <h2 id = "computerCompetition" style="text-align: center; color: rgb(236, 235, 235);">21 rounds left in this game</h2>
+            <h3 style="text-align: center; color: rgb(236, 235, 235);">You have 21 rounds to try to beat the computer!</h3>
+        </div>
+
+        <h2 style="color: #f7b733; font-size: 25px;">Stats:</h2>
+        <h3 id="overallCount" style="color:rgb(236, 235, 235) ">Overall play count: 0</h3>
+        <h3 id="gameCount" style="color:rgb(236, 235, 235) ">Total full games played: 0</h3>
+
+        <table class = "stats">
+            <tr>
+                <th>Move</th>
+                <th>Times Played</th>
+                <th>Win %</th>
+            </tr>
+
+            <tr>
+                <td>Rock</td>
+                <td id="rockTP"></td>
+                <td id ="rockWP"></td>
+            </tr>
+
+            <tr>
+                <td>Paper</td>
+                <td id ="paperTP"></td>
+                <td id="paperWP"></td>
+            </tr>
+
+            <tr>
+                <td>Scissors</td>
+                <td id="scissTP"></td>
+                <td id="scissWP"></td>
+            </tr>
+        </table>
+    
+        <table class = "stats">
+                <tr>
+                    <th>Game Result</th>
+                    <th>Count</th>
+                </tr>
+    
+                <tr>
+                    <td>Win</td>
+                    <td id="winCount"></td>
+                </tr>
+    
+                <tr>
+                    <td>Tie</td>
+                    <td id="tieCount"></td>
+                </tr>
+    
+                <tr>
+                    <td>Loss</td>
+                    <td id="loseCount"></td>
+                </tr>
+            </table>
+    </div>
+    <br>
+    <br>
+    </body>
+</html>
